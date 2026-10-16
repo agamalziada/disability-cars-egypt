@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>مسيرة احتجاز سيارات ذوي الإعاقة: المحتجزة والمُفرج عنها</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--blue:#378ADD;--coral:#D85A30;--teal:#1D9E75;--amber:#BA7517;--gray:#888780;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Tajawal",sans-serif;background:#fff;color:#2c2c2a;direction:rtl;}
+  #root{padding:clamp(12px,3vw,20px);}
+  .hdr{border-right:3px solid #D85A30;padding-right:10px;margin-bottom:10px;}
+  .tag{font-size:clamp(9px,2vw,10px);font-weight:700;letter-spacing:.06em;color:var(--gray);margin-bottom:2px;}
+  .ttl{font-size:clamp(13px,3.5vw,15px);font-weight:700;line-height:1.4;margin-bottom:2px;}
+  .sub{font-size:clamp(11px,2.5vw,12px);color:#5f5e5a;}
+  .callout{background:#f1efe8;border-right:3px solid #D85A30;padding:8px 11px;font-size:clamp(11px,2.5vw,12px);color:#5f5e5a;line-height:1.6;margin:9px 0;font-style:italic;}
+  .src{font-size:clamp(9px,2vw,10px);color:var(--gray);margin-top:10px;line-height:1.4;text-align:right;}
+  .cards{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .card{flex:1;min-width:min(100px,44%);border-radius:8px;padding:clamp(9px,2.5vw,12px) clamp(10px,3vw,13px);}
+  @media(prefers-color-scheme:dark){body{background:#1a1a18;color:#d3d1c7;}.callout{background:#2c2c2a;color:#b4b2a9;}.sub,.src{color:#b4b2a9;}}
+</style>
+</head>
+<body><div id="root">
+  <div class="hdr"><p class="tag">زاوية ثالثة · إنفوجرافيك ① من ⑥</p><p class="ttl">مسيرة احتجاز سيارات ذوي الإعاقة: المحتجزة والمُفرج عنها</p><p class="sub">~9,000 أُفرج عنها · ~2,800 لا تزال محتجزة · ثلاثة أرقام متضاربة</p></div>
+  <div class="callout">"أفرجت الجمارك على مراحل عن نحو تسعة آلاف سيارة من أصل قرابة 13 ألفًا، وأن نحو 2800 سيارة ما زالت محتجزة في الموانئ بعد ما يقرب من عامين"</div>
+  
+<div style="margin-bottom:14px">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+    <span style="font-size:clamp(10px,2.5vw,11px);color:#5f5e5a;font-weight:600">إجمالي المحتجزة (تقدير يوليو 2024)</span>
+    <span style="font-size:clamp(11px,2.8vw,12px);font-weight:800;color:#2c2c2a">~13,000</span>
+  </div>
+  <div style="height:16px;background:#f1efe8;border-radius:4px;overflow:hidden">
+    <div id="pg1a" style="height:100%;width:0;background:#2c2c2a;border-radius:4px;transition:width 1.2s ease"></div>
+  </div>
+</div>
+<div style="margin-bottom:14px">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+    <span style="font-size:clamp(10px,2.5vw,11px);color:#5f5e5a;font-weight:600">المُفرج عنها حتى ديسمبر 2025</span>
+    <span style="font-size:clamp(11px,2.8vw,12px);font-weight:800;color:#1D9E75">~9,000</span>
+  </div>
+  <div style="height:16px;background:#edf7f3;border-radius:4px;overflow:hidden">
+    <div id="pg1b" style="height:100%;width:0;background:#1D9E75;border-radius:4px;transition:width 1.2s .15s ease"></div>
+  </div>
+</div>
+<div style="margin-bottom:14px">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+    <span style="font-size:clamp(10px,2.5vw,11px);color:#993C1D;font-weight:600">ما زالت محتجزة (ديسمبر 2025)</span>
+    <span style="font-size:clamp(11px,2.8vw,12px);font-weight:800;color:#D85A30">~2,800</span>
+  </div>
+  <div style="height:16px;background:#faece7;border-radius:4px;overflow:hidden">
+    <div id="pg1c" style="height:100%;width:0;background:#D85A30;border-radius:4px;transition:width 1.2s .3s ease"></div>
+  </div>
+</div>
+<div style="background:#fff4e0;border-right:3px solid #BA7517;padding:9px 12px;border-radius:0 6px 6px 0">
+  <p style="font-size:clamp(10px,2.5vw,11px);color:#7A4C0D;line-height:1.6"><strong>رقم الجمارك أمام البرلمان (فبراير 2026):</strong> 12,000 سيارة فقط — يختلف عن أرقام التجار ومصادر الشعبة.</p>
+</div>
+<script>
+setTimeout(function(){
+  document.getElementById("pg1a").style.width="100%";
+  document.getElementById("pg1b").style.width="69.2%";
+  document.getElementById("pg1c").style.width="21.5%";
+},200);
+</script>
+  <p class="src">المصدر: مصادر شعبة السيارات — العربية بزنس / رئيس مصلحة الجمارك أمام لجنة الخطة والموازنة في البرلمان</p>
+</div>
+<script>
+(function(){function notify(){var h=document.getElementById("root").offsetHeight;window.parent.postMessage({type:"chartResize",height:h},"*");}
+setTimeout(notify,1400);window.addEventListener("resize",notify);
+try{new ResizeObserver(function(){setTimeout(notify,80);}).observe(document.body);}catch(e){}})();
+</script></body></html>
